@@ -5,21 +5,22 @@ FILE* OpeningFile(char* argv) {
   return file1;
 }
 
-struct Count {
-  int size;
+struct count {
+  int elements;
   int rows;
 };
 
-int* CountingElementsAndRowsOfFile(char* argv) {
-  int* elementsRowsCount = {0, 0};
+struct CountingElementsAndRowsOfFile(char* argv) {
+  struct count NumberOf;
+  NumberOf.elements = 0;
   int buffor;
   FILE* file1 = OpeningFile(argv);
   while (fscanf(file1, "%i", &buffor) != EOF) {
-    elementsRowsCount[0]++;
+    NumberOf.elements++;
   }
-  elementsRowsCount[1] = sqrt(elementsRowsCount[0]);
+  NumberOf.rows = sqrt(NumberOf.elements);
   fclose(file1);
-  return elementsRowsCount;
+  return NumberOf;
 }
 
 int* ReadingFileToArray(int ElementsNum, char* argv) {

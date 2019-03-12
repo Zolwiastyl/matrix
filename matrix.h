@@ -5,7 +5,7 @@
 #include <stdlib.h>
 // i inne
 
-int* CountingElementsAndRowsOfFile(char* argv);
+struct CountingElementsAndRowsOfFile(char* argv);
 int* ReadingFileToArray(int ElementsNum, char* argv);
 int* AddMatrices(int ElementsNum, int RowsNum, int* Arr1, int* Arr2);
 int* SubtractMatrices(int ElementsNum, int RowsNum, int* Arr1, int* Arr2);
