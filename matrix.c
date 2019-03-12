@@ -5,6 +5,11 @@ FILE* OpeningFile(char* argv) {
   return file1;
 }
 
+struct Count {
+  int size;
+  int rows;
+};
+
 int* CountingElementsAndRowsOfFile(char* argv) {
   int* elementsRowsCount = {0, 0};
   int buffor;
