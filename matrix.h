@@ -15,5 +15,6 @@ int* ReadingFileToArray(struct count NumberOf, char* argv);
 int* AddMatrices(struct count NumberOf, int* Arr1, int* Arr2);
 int* SubtractMatrices(struct count NumberOf, int* Arr1, int* Arr2);
 int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2);
+int* TransponingMatrix(struct count NumberOf, int* Arr2);
 
 // i inne

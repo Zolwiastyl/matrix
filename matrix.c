@@ -30,44 +30,51 @@ int* ReadingFileToArray(struct count NumberOf, char* argv) {
 }
 
 int* AddMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
-  int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
+  int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
 
   for (int i = 0; i < NumberOf.elements; i++) {
-    Arr3[i] = Arr1[i] + Arr2[i];
+    Arr4[i] = Arr1[i] + Arr2[i];
   }
   for (int i = 0; i < NumberOf.elements; i++) {
-    printf(" %i \n", Arr3[i]);
+    printf(" %i \n", Arr4[i]);
   }
-  return Arr3;
+  return Arr4;
 }
 
 int* SubtractMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
-  int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
+  int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
 
   for (int i = 0; i < NumberOf.elements; i++) {
-    Arr3[i] = Arr1[i] - Arr2[i];
+    Arr4[i] = Arr1[i] - Arr2[i];
   }
-
-  return Arr3;
+  for (int i = 0; i < NumberOf.elements; i++) {
+    printf(" %i \n", Arr4[i]);
+  }
+  return Arr4;
 }
 int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
-  int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
-
-  for (int i = 0; i < NumberOf.rows; i++) {
-    for (int j = 0; j < NumberOf.rows; j++) {
-      Arr3[i] += Arr1[i] * Arr2[j * NumberOf.rows];
+  int* Arr3 = TransponingMatrix(NumberOf, Arr2);
+  int AuxillaryVariable = 0;
+  int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
+  for (int i = 0; i < NumberOf.elements; i + NumberOf.rows) {
+    Arr4[i] = AuxillaryVariable;
+    for (int i = 0; i < NumberOf.rows; i++) {
+      AuxillaryVariable += Arr1[i] * Arr3[i];
     }
-    for (int i = 0; i < NumberOf.elements; i++) {
-      printf(" %i \n", Arr3[i]);
+  }
+  for (int i = 0; i < NumberOf.elements; i++) {
+    printf(" %i \n", Arr4[i]);
+  }
+
+  return Arr4;
+}
+
+int* TransponingMatrix(struct count NumberOf, int* Arr2) {
+  int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
+  for (int i = 0; i < NumberOf.rows; i++) {
+    for (int i = 0; i < NumberOf.elements; i + NumberOf.rows) {
+      Arr3[i] = Arr2[i];
     }
   }
   return Arr3;
 }
-
-/*void DoPrintedDebug() {
-  printf("The second number is: %i \n", arr1[2]);
-  printf("number of elements: %i \n", elementsCount);
-  printf("last element: %i\n", buffor);
-  printf("row number is: %i\n", NumberOf.rows);
-  return 0;
-}*/

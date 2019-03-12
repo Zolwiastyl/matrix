@@ -9,6 +9,7 @@ int main(int argc, char** argv) {
   int* Arr1;
   int* Arr2;
   int* Arr3;
+  int* Arr4;
 
   ElementsNum = CountingElementsAndRowsOfFile(argv[1]);
   RowsNum = CountingElementsAndRowsOfFile(argv[1]);
@@ -16,15 +17,18 @@ int main(int argc, char** argv) {
   Arr2 = ReadingFileToArray(ElementsNum, argv[2]);
   switch (argv[3][0]) {
     case '+':
-      Arr3 = AddMatrices(ElementsNum, Arr1, Arr2);
+      Arr4 = AddMatrices(ElementsNum, Arr1, Arr2);
       break;
     case '-':
-      Arr3 = SubtractMatrices(ElementsNum, Arr1, Arr2);
+      Arr4 = SubtractMatrices(ElementsNum, Arr1, Arr2);
       break;
     case '*':
-      Arr3 = MultiplyMatrices(ElementsNum, Arr1, Arr2);
+      Arr4 = MultiplyMatrices(ElementsNum, Arr1, Arr2);
+      // free(Arr3);
       break;
   }
-
+  free(Arr1);
+  free(Arr2);
+  free(Arr4);
   return 0;
 }
