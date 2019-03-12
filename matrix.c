@@ -57,10 +57,10 @@ int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int AuxillaryVariable = 0;
   int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
   for (int i = 0; i < NumberOf.elements; i + NumberOf.rows) {
-    Arr4[i] = AuxillaryVariable;
     for (int i = 0; i < NumberOf.rows; i++) {
       AuxillaryVariable += Arr1[i] * Arr3[i];
     }
+    Arr4[i] = AuxillaryVariable;
   }
   for (int i = 0; i < NumberOf.elements; i++) {
     printf(" %i \n", Arr4[i]);
