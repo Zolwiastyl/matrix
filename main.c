@@ -10,19 +10,19 @@ int main(int argc, char** argv) {
   int* Arr2;
   int* Arr3;
 
-  ElementsNum = CountingElementsAndRowsOfFile(argv[1]).elements;
-  RowsNum = CountingElementsAndRowsOfFile(argv[1]).size;
+  ElementsNum = CountingElementsAndRowsOfFile(argv[1]);
+  RowsNum = CountingElementsAndRowsOfFile(argv[1]);
   Arr1 = ReadingFileToArray(ElementsNum, argv[1]);
   Arr2 = ReadingFileToArray(ElementsNum, argv[2]);
   switch (argv[3][0]) {
     case '+':
-      Arr3 = AddMatrices(ElementsNum, RowsNum, Arr1, Arr2);
+      Arr3 = AddMatrices(ElementsNum, Arr1, Arr2);
       break;
     case '-':
-      Arr3 = SubtractMatrices(ElementsNum, RowsNum, Arr1, Arr2);
+      Arr3 = SubtractMatrices(ElementsNum, Arr1, Arr2);
       break;
     case '*':
-      Arr3 = MultiplyMatrices(ElementsNum, RowsNum, Arr1, Arr2);
+      Arr3 = MultiplyMatrices(ElementsNum, Arr1, Arr2);
       break;
   }
 

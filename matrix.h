@@ -5,10 +5,15 @@
 #include <stdlib.h>
 // i inne
 
+struct count {
+  int elements;
+  int rows;
+};
+
 struct CountingElementsAndRowsOfFile(char* argv);
-int* ReadingFileToArray(struct NumberOf, char* argv);
-int* AddMatrices(struct NumberOf, int* Arr1, int* Arr2);
-int* SubtractMatrices(struct NumberOf, int* Arr1, int* Arr2);
-int* MultiplyMatrices(struct NumberOf, int* Arr1, int* Arr2);
+int* ReadingFileToArray(struct count NumberOf, char* argv);
+int* AddMatrices(struct count NumberOf, int* Arr1, int* Arr2);
+int* SubtractMatrices(struct count NumberOf, int* Arr1, int* Arr2);
+int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2);
 
 // i inne

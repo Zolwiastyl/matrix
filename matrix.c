@@ -5,10 +5,6 @@ FILE* OpeningFile(char* argv) {
   return file1;
 }
 
-struct count {
-  int elements;
-  int rows;
-};
 struct CountingElementsAndRowsOfFile(char* argv) {
   struct count NumberOf;
   NumberOf.elements = 0;
@@ -22,7 +18,7 @@ struct CountingElementsAndRowsOfFile(char* argv) {
   return NumberOf;
 }
 
-int* ReadingFileToArray(struct NumberOf, char* argv) {
+int* ReadingFileToArray(struct count NumberOf, char* argv) {
   int* arr = malloc(sizeof(int) * (NumberOf.elements + 1));
   int i = 0;
   FILE* file1 = OpeningFile(argv);
@@ -33,7 +29,7 @@ int* ReadingFileToArray(struct NumberOf, char* argv) {
   return arr;
 }
 
-int* AddMatrices(struct NumberOf, int* Arr1, int* Arr2) {
+int* AddMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
 
   for (int i = 0; i < NumberOf.elements; i++) {
@@ -45,7 +41,7 @@ int* AddMatrices(struct NumberOf, int* Arr1, int* Arr2) {
   return Arr3;
 }
 
-int* SubtractMatrices(struct NumberOf, int* Arr1, int* Arr2) {
+int* SubtractMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
 
   for (int i = 0; i < NumberOf.elements; i++) {
@@ -54,7 +50,7 @@ int* SubtractMatrices(struct NumberOf, int* Arr1, int* Arr2) {
 
   return Arr3;
 }
-int* MultiplyMatrices(struct NumberOf, int* Arr1, int* Arr2) {
+int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
 
   for (int i = 0; i < NumberOf.rows; i++) {
