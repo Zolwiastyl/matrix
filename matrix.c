@@ -31,7 +31,7 @@ int* ReadingFileToArray(struct count NumberOf, char* argv) {
 
 int* AddMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
-
+  printf(" %i \n", NumberOf.rows);
   for (int i = 0; i < NumberOf.elements; i++) {
     Arr4[i] = Arr1[i] + Arr2[i];
   }
@@ -56,9 +56,12 @@ int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int* Arr3 = TransponingMatrix(NumberOf, Arr2);
   int AuxillaryVariable = 0;
   int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
-  for (int i = 0; i < NumberOf.elements; i + NumberOf.rows) {
-    for (int i = 0; i < NumberOf.rows; i++) {
-      AuxillaryVariable += Arr1[i] * Arr3[i];
+  printf(" %i \n", NumberOf.rows);
+
+  for (int i = 0; i < NumberOf.elements; i += NumberOf.rows) {
+    printf(" %i \n", NumberOf.rows);
+    for (int k = 0; k < NumberOf.rows; k++) {
+      AuxillaryVariable += Arr1[k] * Arr2[k];
     }
     Arr4[i] = AuxillaryVariable;
   }
@@ -71,10 +74,22 @@ int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
 
 int* TransponingMatrix(struct count NumberOf, int* Arr2) {
   int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
-  for (int i = 0; i < NumberOf.rows; i++) {
-    for (int i = 0; i < NumberOf.elements; i + NumberOf.rows) {
-      Arr3[i] = Arr2[i];
+
+  for (int j = 0; j < NumberOf.elements; j++) {
+    for (int i = 0; i < NumberOf.rows; i++) {
+      for (int k = 0; k < NumberOf.elements; k += NumberOf.rows) {
+        Arr3[j] = Arr2[k];
+      }
     }
   }
+
+  for (int i = 0; i < NumberOf.elements; i++) {
+    printf(" %i \n", Arr3[i]);
+  }
+  /*for (int i = 0; i < NumberOf.rows; i++) {
+    for (int k = 0; k < NumberOf.elements; k += NumberOf.rows) {
+      Arr3[k] = Arr2[k];
+    }
+  }*/
   return Arr3;
 }
