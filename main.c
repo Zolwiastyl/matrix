@@ -4,14 +4,14 @@
 #include "matrix.h"
 
 int main(int argc, char** argv) {
-  int RowsNum;
-  int ElementsNum;
+  struct count RowsNum;
+  struct count ElementsNum;
   int* Arr1;
   int* Arr2;
   int* Arr3;
 
-  ElementsNum = CountingElementsAndRowsOfFile(argv[1])[0];
-  RowsNum = CountingElementsAndRowsOfFile(argv[1])[1];
+  ElementsNum = CountingElementsAndRowsOfFile(argv[1]).elements;
+  RowsNum = CountingElementsAndRowsOfFile(argv[1]).size;
   Arr1 = ReadingFileToArray(ElementsNum, argv[1]);
   Arr2 = ReadingFileToArray(ElementsNum, argv[2]);
   switch (argv[3][0]) {
