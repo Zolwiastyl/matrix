@@ -10,7 +10,7 @@ struct count {
   int rows;
 };
 
-struct CountingElementsAndRowsOfFile(char* argv);
+struct count CountingElementsAndRowsOfFile(char* argv);
 int* ReadingFileToArray(struct count NumberOf, char* argv);
 int* AddMatrices(struct count NumberOf, int* Arr1, int* Arr2);
 int* SubtractMatrices(struct count NumberOf, int* Arr1, int* Arr2);

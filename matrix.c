@@ -5,7 +5,7 @@ FILE* OpeningFile(char* argv) {
   return file1;
 }
 
-struct CountingElementsAndRowsOfFile(char* argv) {
+struct count CountingElementsAndRowsOfFile(char* argv) {
   struct count NumberOf;
   NumberOf.elements = 0;
   int buffor;
