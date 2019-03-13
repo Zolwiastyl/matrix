@@ -58,11 +58,16 @@ int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
   int* Arr4 = malloc(sizeof(int) * (NumberOf.elements + 1));
   printf(" %i \n", NumberOf.rows);
 
-  for (int i = 0; i < NumberOf.elements; i++) {
-    for (int k = 0; k < NumberOf.rows; k++) {
-      AuxillaryVariable += Arr1[k] * Arr2[k];
+  for (int j = 0; j < NumberOf.rows; j++) {
+    for (int i = 0; i < NumberOf.rows; i++) {
+      for (int k = 0; k < NumberOf.rows; k++) {
+        AuxillaryVariable +=
+            Arr1[k + NumberOf.rows * j] * Arr3[k + NumberOf.rows * i];
+      }
+
+      Arr4[i + NumberOf.rows * j] = AuxillaryVariable;
+      AuxillaryVariable = 0;
     }
-    Arr4[i] = AuxillaryVariable;
   }
   for (int i = 0; i < NumberOf.elements; i++) {
     printf(" %i \n", Arr4[i]);
@@ -77,7 +82,8 @@ int* TransponingMatrix(struct count NumberOf, int* Arr2) {
     for (int j = 0; j < NumberOf.rows; j++) {
       Arr3[j + NumberOf.rows * i] = Arr2[i + NumberOf.rows * j];
       // dodawanie nas przemieszcza między kolumnami, a mnożenie między
-      // wierszami. w arr3 dodawanie nas przemieszcze między wierszami,
+      // wierszami. w arr3||
+      // dodawanie nas przemieszcze między wierszami,
     }
   }
 
