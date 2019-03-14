@@ -3,6 +3,7 @@
 FILE* OpeningFile(char* argv) {
   FILE* file1 = fopen(argv, "r");
   if (file1 == NULL) {
+    fprintf(stderr, "File %s doesn't exist\n", argv);
     perror("Please don't");
     exit(1);
   }
@@ -121,4 +122,12 @@ int CheckingEquality(struct count Size1, struct count Size2) {
   } else {
     return 1;
   }
+}
+int CheckIfSquare(struct count Size1) {
+  for (int i = 0; i <= Size1.elements; i++) {
+    if (i * i == Size1.elements) {
+      return 1;
+    }
+  }
+  return 0;
 }
