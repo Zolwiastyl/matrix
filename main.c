@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
   }
   free(Arr1);
   free(Arr2);
+  WrittingMatrixToFile(argv[4], Arr4, ElementsNum);
   free(Arr4);
   return 0;
 }

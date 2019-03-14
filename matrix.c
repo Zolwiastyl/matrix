@@ -2,6 +2,10 @@
 
 FILE* OpeningFile(char* argv) {
   FILE* file1 = fopen(argv, "r");
+  if (file1 == NULL) {
+    perror("Please don't");
+    exit(1);
+  }
   return file1;
 }
 
@@ -77,6 +81,8 @@ int* MultiplyMatrices(struct count NumberOf, int* Arr1, int* Arr2) {
 }
 
 int* TransponingMatrix(struct count NumberOf, int* Arr2) {
+  /*AuxillaryVariable +=
+      Arr1[k + NumberOf.rows * i] * Arr3[j + NumberOf.rows * k];*/
   int* Arr3 = malloc(sizeof(int) * (NumberOf.elements + 1));
   for (int i = 0; i < NumberOf.rows; i++) {
     for (int j = 0; j < NumberOf.rows; j++) {
@@ -96,4 +102,23 @@ int* TransponingMatrix(struct count NumberOf, int* Arr2) {
     }
   }*/
   return Arr3;
+}
+
+//
+void WrittingMatrixToFile(char* argv, int* Arr, struct count NumberOf) {
+  FILE* file = fopen(argv, "w");
+  for (int i = 0; i < NumberOf.rows; i++) {
+    for (int j = 0; j < NumberOf.rows; j++) {
+      fprintf(file, "%5i ", Arr[j + NumberOf.rows * i]);
+      // while (fscanf(file1, "%i", &arr[i]) != EOF)
+    }
+    fprintf(file, "\n");
+  }
+}
+int CheckingEquality(struct count Size1, struct count Size2) {
+  if (Size1.elements != Size2.elements) {
+    return 0;
+  } else {
+    return 1;
+  }
 }
