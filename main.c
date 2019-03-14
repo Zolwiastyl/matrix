@@ -10,7 +10,10 @@ int main(int argc, char** argv) {
   int* Arr1;
   int* Arr2;
   int* Arr3;
-
+  if (argc < 5) {
+    fprintf(stderr, "I need more arguments.");
+    exit(1);
+  }
   ElementsNum = CountingElementsAndRowsOfFile(argv[1]);
   ElementsNum1 = CountingElementsAndRowsOfFile(argv[2]);
   RowsNum = CountingElementsAndRowsOfFile(argv[1]);
